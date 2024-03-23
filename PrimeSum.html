@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Prime Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        textarea, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sum of Prime Numbers</h2>
+
+    <div class="container">
+        <textarea id="primeInput" placeholder="Enter a number"></textarea>
+        <button onclick="sumOfPrime()">Calculate</button>
+        <div class="output" id="primeOutput"></div>
+    </div>
+
+    <script>
+        function sumOfPrime() {
+            var n = parseInt(document.getElementById("primeInput").value);
+            var sum = 0;
+            for (var i = 2; i <= n; i++) {
+                var isPrime = true;
+                for (var j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    sum += i;
+                }
+            }
+            document.getElementById("primeOutput").textContent = sum;
+        }
+    </script>
+</body>
+</html>
