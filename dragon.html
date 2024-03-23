@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dragon Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dragon Counter</h1>
+    <script>
+      function countDragons(arr) {
+        let total = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].toLowerCase() === 'dragon') {
+            total += 1;
+          }
+        }
+        return total;
+      }
+
+      const input = prompt("Enter a list of words separated by spaces:");
+      const array = input.split(" ");
+      const result = countDragons(array);
+      document.write('<h2>Number of Dragons: ' + result + '</h2>');
+    </script>
+  </div>
+</body>
+</html>
