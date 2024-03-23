@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intersection of Arrays</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const array1 = prompt('Enter the elements of the first array (comma-separated):').split(',');
+      const array2 = prompt('Enter the elements of the second array (comma-separated):').split(',');
+      const intersection = findIntersection(array1, array2);
+      
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = 'Intersection: ' + intersection.join(', ');
+    });
+
+    function findIntersection(arr1, arr2) {
+      return arr1.filter(value => arr2.includes(value));
+    }
+  </script>
+</head>
+<body>
+  <h1>Intersection of Arrays</h1>
+  <div id="result"></div>
+</body>
+</html>
