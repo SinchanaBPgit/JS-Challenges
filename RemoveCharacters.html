@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Characters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Remove Characters</h1>
+    <div>
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString">
+        <label for="charactersToRemove">Characters to remove:</label>
+        <input type="text" id="charactersToRemove">
+        <button id="removeButton">Remove</button>
+        <div id="result"></div>
+    </div>
+    <script>
+    
+        document.getElementById('removeButton').addEventListener('click', function() {
+            var inputString = document.getElementById('inputString').value;
+            var charactersToRemove = document.getElementById('charactersToRemove').value;
+            var result = inputString.replace(new RegExp("[" + charactersToRemove + "]", "g"), '');
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>
