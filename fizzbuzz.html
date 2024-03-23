@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        textarea, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>FizzBuzz</h2>
+
+    <div class="container">
+        <textarea id="fizzBuzzInput" placeholder="Enter a number"></textarea>
+        <button onclick="fizzBuzz()">FizzBuzz</button>
+        <div class="output" id="fizzBuzzOutput"></div>
+    </div>
+
+    <script>
+        function fizzBuzz() {
+            var input = parseInt(document.getElementById("fizzBuzzInput").value);
+            var output = "";
+            for (var i = 1; i <= input; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    output += "FizzBuzz ";
+                } else if (i % 3 === 0) {
+                    output += "Fizz ";
+                } else if (i % 5 === 0) {
+                    output += "Buzz ";
+                } else {
+                    output += i + " ";
+                }
+            }
+            document.getElementById("fizzBuzzOutput").textContent = output;
+        }
+    </script>
+</body>
+</html>
