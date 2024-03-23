@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat and Dog Years</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: bisque;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            background-color: #cf5a1b;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CAT AND DOG YEARS</h1>
+    <script>
+        function calculateAgeInCatAndDogYears(humanYears) {
+            let catAge, dogAge;
+            if (humanYears === 1) {
+                catAge = dogAge = 15;
+            } else if (humanYears === 2) {
+                catAge = dogAge = 24;
+            } else {
+                const excessYears = humanYears - 2;
+                const extraCatYears = excessYears * 4;
+                const extraDogYears = excessYears * 5;
+                catAge = 24 + extraCatYears;
+                dogAge = 24 + extraDogYears;
+            }
+            return [humanYears, catAge, dogAge];
+        }
+
+        const input = prompt("Enter human years:");
+        const humanYears = parseInt(input);
+        if (!isNaN(humanYears)) {
+            const result = calculateAgeInCatAndDogYears(humanYears);
+            document.write('<h2>Result is: ' + result + '</h2>');
+        } else {
+            document.write('<h2>Please enter a valid number.</h2>');
+        }
+    </script>
+</body>
+</html>
