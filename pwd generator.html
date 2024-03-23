@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Password Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function generatePassword() {
+      var length = 10; 
+      var uppercase = true; 
+      var lowercase = true; 
+      var numbers = true; 
+      var specialCharacters = true; 
+
+      var charset = "";
+      if (uppercase) {
+        charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      if (lowercase) {
+        charset += "abcdefghijklmnopqrstuvwxyz";
+      }
+      if (numbers) {
+        charset += "0123456789";
+      }
+      if (specialCharacters) {
+        charset += "!@#$%^&*()";
+      }
+
+      var password = "";
+      for (var i = 0; i < length; i++) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+
+      return password;
+    }
+  </script>
+</head>
+<body>
+  <h1>Random Password Generator</h1>
+  <button onclick="alert(generatePassword())">Generate Password</button>
+</body>
+</html>
