@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Repeat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Repeat</h1>
+    <div>
+        <label for="string">Enter a string:</label>
+        <input type="text" id="string">
+        <label for="times">Number of times to repeat:</label>
+        <input type="number" id="times" min="0">
+        <button id="repeatButton">Repeat</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        // JavaScript code for the String Repeat challenge
+        document.getElementById('repeatButton').addEventListener('click', function() {
+            var str = document.getElementById('string').value;
+            var num = parseInt(document.getElementById('times').value);
+            var resultDiv = document.getElementById('result');
+            if (!isNaN(num)) {
+                resultDiv.innerText = str.repeat(num);
+            } else {
+                resultDiv.innerText = "Please enter a valid number.";
+            }
+        });
+    </script>
+</body>
+</html>
