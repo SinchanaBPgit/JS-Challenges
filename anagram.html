@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        textarea, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Anagram Checker</h2>
+
+    <div class="container">
+        <textarea id="anagramInput1" placeholder="Enter first word"></textarea>
+        <textarea id="anagramInput2" placeholder="Enter second word"></textarea>
+        <button onclick="checkAnagram()">Check Anagram</button>
+        <div class="output" id="anagramOutput"></div>
+    </div>
+
+    <script>
+        function checkAnagram() {
+            var word1 = document.getElementById("anagramInput1").value.toLowerCase().replace(/\s/g, '');
+            var word2 = document.getElementById("anagramInput2").value.toLowerCase().replace(/\s/g, '');
+
+            if (word1.length !== word2.length) {
+                document.getElementById("anagramOutput").textContent = "Not Anagrams";
+                return;
+            }
+
+            var sortedWord1 = word1.split('').sort().join('');
+            var sortedWord2 = word2.split('').sort().join('');
+
+            if (sortedWord1 === sortedWord2) {
+                document.getElementById("anagramOutput").textContent = "Anagrams";
+            } else {
+                document.getElementById("anagramOutput").textContent = "Not Anagrams";
+            }
+        }
+    </script>
+</body>
+</html>
