@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Double Array Elements</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<h1>Double Array Elements</h1>
+<div>
+  <label for="arrayInput">Enter numbers separated by commas:</label>
+  <input type="text" id="arrayInput">
+  <button onclick="doubleElements()">Double Elements</button>
+</div>
+<div id="result"></div>
+
+<script>
+function doubleElements() {
+  const arrayInput = document.getElementById('arrayInput').value;
+  const numbers = arrayInput.split(',').map(Number);
+  const doubledNumbers = numbers.map(num => num * 2);
+  document.getElementById('result').innerText = `Doubled Elements: ${doubledNumbers.join(', ')}`;
+}
+</script>
+</body>
+</html>
