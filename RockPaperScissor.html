@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        #game {
+            margin-top: 20px;
+        }
+        button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div id="game">
+        
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        
+        function playGame(playerChoice) {
+            var choices = ['rock', 'paper', 'scissors'];
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            var result;
+            if (playerChoice === computerChoice) {
+                result = "It's a tie!";
+            } else if ((playerChoice === 'rock' && computerChoice === 'scissors') ||
+                       (playerChoice === 'paper' && computerChoice === 'rock') ||
+                       (playerChoice === 'scissors' && computerChoice === 'paper')) {
+                result = "You win!";
+            } else {
+                result = "Computer wins!";
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+
+    
+        document.getElementById('rock').addEventListener('click', function() {
+            playGame('rock');
+        });
+
+        document.getElementById('paper').addEventListener('click', function() {
+            playGame('paper');
+        });
+
+        document.getElementById('scissors').addEventListener('click', function() {
+            playGame('scissors');
+        });
+    </script>
+</body>
+</html>
