@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Frequency Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        textarea, button {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Word Frequency Counter</h2>
+
+    <div>
+        <textarea id="textInput" placeholder="Enter text here"></textarea>
+        <button onclick="countWords()">Count Words</button>
+    </div>
+
+    <div class="output" id="wordCountOutput"></div>
+
+    <script>
+        function countWords() {
+            var text = document.getElementById("textInput").value;
+            var wordCounts = {};
+
+            // Remove punctuation and convert to lowercase
+            var words = text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/);
+
+            words.forEach(function(word) {
+                if (wordCounts[word]) {
+                    wordCounts[word]++;
+                } else {
+                    wordCounts[word] = 1;
+                }
+            });
+
+            var output = "";
+            for (var word in wordCounts) {
+                output += word + ": " + wordCounts[word] + "<br>";
+            }
+
+            document.getElementById("wordCountOutput").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
