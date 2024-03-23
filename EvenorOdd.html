@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Even or Odd</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<h1>Even or Odd</h1>
+<div>
+  <label for="arrayInput">Enter numbers separated by commas:</label>
+  <input type="text" id="arrayInput">
+  <button onclick="checkEvenOdd()">Check Even or Odd</button>
+</div>
+<div id="result"></div>
+
+<script>
+function checkEvenOdd() {
+  const arrayInput = document.getElementById('arrayInput').value;
+  const numbers = arrayInput.split(',').map(Number);
+  const evenOdd = numbers.map(num => num % 2 === 0 ? 'Even' : 'Odd');
+  document.getElementById('result').innerText = ` ${evenOdd.join(', ')}`;
+}
+</script>
+</body>
+</html>
