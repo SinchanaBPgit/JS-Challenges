@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fibonacci Sequence</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .input-group button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #result {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fibonacci Sequence</h1>
+    <div class="input-group">
+      <input type="number" id="numberInput" placeholder="Enter a number">
+      <button onclick="calculateFibonacci()">Generate Sequence</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateFibonacci() {
+      const number = parseInt(document.getElementById('numberInput').value);
+      let sequence = '';
+
+      if (number >= 1) {
+        let n1 = 0;
+        sequence += n1;
+      }
+
+      if (number >= 2) {
+        let n2 = 1;
+        sequence += ', ' + n2;
+      }
+
+      let n1 = 0;
+      let n2 = 1;
+
+      for (let i = 3; i <= number; i++) {
+        
+        const nextNumber = n1 + n2;
+        sequence += ', ' + nextNumber;
+
+        
+        n1 = n2;
+        n2 = nextNumber;
+      }
+
+      document.getElementById('result').textContent = sequence;
+    }
+  </script>
+</body>
+</html>
